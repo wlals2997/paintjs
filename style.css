@@ -16,8 +16,16 @@ body {
   border-radius: 15px;
   box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
 }
+.board{
+    width:700px;
+    height: 30px;
+    border-radius: 5px;
+    background-color: brown;
+    position: absolute;
+    top:700px;
+}
 .controls{
-    margin-top: 50px;
+    margin-top: 80px;
 }
 
 .controls .controls__colors{
