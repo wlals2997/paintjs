@@ -19,7 +19,7 @@ body {
 }
 .board {
   width: 700px;
-  height: 30px;
+  height: 40px;
   border-radius: 5px;
   background-color: brown;
   position: absolute;

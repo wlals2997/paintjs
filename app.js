@@ -4,6 +4,8 @@ const colors = document.getElementsByClassName('jsColor');
 const range = document.querySelector('#jsRange');
 const Fill = document.querySelector('#jsMode');
 const Save = document.querySelector('#jsSave');
+const Erase = document.querySelector('#jsErase');
+const Delete = document.querySelector('#jsDelete');
 
 const DEFAULT__COLORS = '#2c2c2c';
 const CANVAS__SIZE = 700;
@@ -77,6 +79,12 @@ function onHandleSave() {
   link.download = 'Paint[💌]';
   link.click(); //가짜 클릭 부여
 }
+function Erasebtn() {
+  context.strokeStyle = 'white';
+}
+function Deletebtn() {
+  window.location.reload(true);
+}
 if (Canvas) {
   Canvas.addEventListener('mousemove', onMousemove);
   Canvas.addEventListener('mousedown', startPainting);
@@ -97,4 +105,10 @@ if (Fill) {
 }
 if (Save) {
   Save.addEventListener('click', onHandleSave);
+}
+if (Erase) {
+  Erase.addEventListener('click', Erasebtn);
+}
+if (Delete) {
+  Delete.addEventListener('click', Deletebtn);
 }
