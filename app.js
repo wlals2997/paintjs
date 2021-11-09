@@ -3,11 +3,14 @@ const context = Canvas.getContext('2d');
 const colors = document.getElementsByClassName('jsColor');
 const range = document.querySelector('#jsRange');
 const Fill = document.querySelector('#jsMode');
+const Save = document.querySelector('#jsSave');
 
-const DEFAULT__COLORS= '#2c2c2c'
-const CANVAS__SIZE=700;
+const DEFAULT__COLORS = '#2c2c2c';
+const CANVAS__SIZE = 700;
 Canvas.width = CANVAS__SIZE; //실제 픽셀사이즈 부여(css, js둘다)
 Canvas.height = CANVAS__SIZE; //실제 픽셀사이즈 부여(css, js둘다)
+context.fillStyle = 'white'; //캔버스 색상설정(하얀색배경)
+context.fillRect(0, 0, CANVAS__SIZE, CANVAS__SIZE);
 context.strokeStyle = DEFAULT__COLORS;
 context.fillStyle = DEFAULT__COLORS;
 context.lineWidth = 2.5; //브러쉬 크기-linewidth
@@ -59,10 +62,20 @@ function changeFillHtml() {
     Fill.innerText = 'PAINT';
   }
 }
-function  fillCanvas() {
+function fillCanvas() {
   if (filling) {
     context.fillRect(0, 0, CANVAS__SIZE, CANVAS__SIZE);
   }
+}
+function contextMenu(event) {
+  event.preventDefault();
+}
+function onHandleSave() {
+  const image = Canvas.toDataURL();
+  const link = document.createElement('a');
+  link.href = image; //href는 imageurl이어야한다.
+  link.download = 'Paint[💌]';
+  link.click(); //가짜 클릭 부여
 }
 if (Canvas) {
   Canvas.addEventListener('mousemove', onMousemove);
@@ -70,6 +83,7 @@ if (Canvas) {
   Canvas.addEventListener('mouseup', onMouseup);
   Canvas.addEventListener('mouseleave', onMouseleave);
   Canvas.addEventListener('click', fillCanvas);
+  Canvas.addEventListener('contextmenu', contextMenu);
 }
 Array.from(colors).forEach((color) =>
   color.addEventListener('click', handleColors)
@@ -80,4 +94,7 @@ if (range) {
 
 if (Fill) {
   Fill.addEventListener('click', changeFillHtml);
+}
+if (Save) {
+  Save.addEventListener('click', onHandleSave);
 }
