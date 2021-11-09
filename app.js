@@ -1,6 +1,8 @@
 const Canvas = document.querySelector('#jsCanvas');
 const context = Canvas.getContext('2d');
 
+Canvas.width = 700;
+Canvas.height = 700;
 context.strokeStyle = '#2c2c2c';
 context.lineWidth = 2.5; //브러쉬 크기-linewidth
 
