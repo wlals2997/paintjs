@@ -59,11 +59,11 @@ function changeFillHtml() {
     Fill.innerText = 'PAINT';
   }
 }
-function fillCanvas(){
-  context.rect(0, 0, CANVAS__SIZE, CANVAS__SIZE);
-  context.fill();
+function  fillCanvas() {
+  if (filling) {
+    context.fillRect(0, 0, CANVAS__SIZE, CANVAS__SIZE);
+  }
 }
-
 if (Canvas) {
   Canvas.addEventListener('mousemove', onMousemove);
   Canvas.addEventListener('mousedown', startPainting);
