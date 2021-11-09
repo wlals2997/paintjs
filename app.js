@@ -1,14 +1,19 @@
 const Canvas = document.querySelector('#jsCanvas');
 const context = Canvas.getContext('2d');
 const colors = document.getElementsByClassName('jsColor');
+const range = document.querySelector('#jsRange');
+const Fill = document.querySelector('#jsMode');
 
-Canvas.width = 700; //실제 픽셀사이즈 부여(css, js둘다)
-Canvas.height = 700; //실제 픽셀사이즈 부여(css, js둘다)
-context.strokeStyle = '#2c2c2c';
+const DEFAULT__COLORS= '#2c2c2c'
+const CANVAS__SIZE=700;
+Canvas.width = CANVAS__SIZE; //실제 픽셀사이즈 부여(css, js둘다)
+Canvas.height = CANVAS__SIZE; //실제 픽셀사이즈 부여(css, js둘다)
+context.strokeStyle = DEFAULT__COLORS;
+context.fillStyle = DEFAULT__COLORS;
 context.lineWidth = 2.5; //브러쉬 크기-linewidth
 
 let painting = false; //paingting 디폴트 false이지만
-
+let filling = false;
 function startPainting() {
   painting = true;
 }
@@ -36,8 +41,27 @@ function onMouseleave(event) {
   painting = false; //마우스가 외부로 갔을 때   false로 변경
 }
 function handleColors(event) {
- const color=event.target.style.backgroundColor;
- context.strokeStyle = color;
+  const color = event.target.style.backgroundColor;
+  context.strokeStyle = color;
+  context.fillStyle = color;
+}
+
+function rangeChange(event) {
+  const brushValue = event.target.value;
+  context.lineWidth = brushValue;
+}
+function changeFillHtml() {
+  if (filling === true) {
+    filling = false;
+    Fill.innerText = 'FILL';
+  } else {
+    filling = true;
+    Fill.innerText = 'PAINT';
+  }
+}
+function fillCanvas(){
+  context.rect(0, 0, CANVAS__SIZE, CANVAS__SIZE);
+  context.fill();
 }
 
 if (Canvas) {
@@ -45,7 +69,15 @@ if (Canvas) {
   Canvas.addEventListener('mousedown', startPainting);
   Canvas.addEventListener('mouseup', onMouseup);
   Canvas.addEventListener('mouseleave', onMouseleave);
+  Canvas.addEventListener('click', fillCanvas);
 }
 Array.from(colors).forEach((color) =>
   color.addEventListener('click', handleColors)
 );
+if (range) {
+  range.addEventListener('input', rangeChange);
+}
+
+if (Fill) {
+  Fill.addEventListener('click', changeFillHtml);
+}
