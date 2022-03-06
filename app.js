@@ -1,5 +1,5 @@
-const Canvas = document.querySelector('#jsCanvas');
-const context = Canvas.getContext('2d');
+const canvas = document.querySelector('#jsCanvas');
+const context = canvas.getContext('2d');
 const colors = document.getElementsByClassName('jsColor');
 const range = document.querySelector('#jsRange');
 const Fill = document.querySelector('#jsMode');
@@ -9,8 +9,8 @@ const Delete = document.querySelector('#jsDelete');
 
 const DEFAULT__COLORS = '#2c2c2c';
 const CANVAS__SIZE = 700;
-Canvas.width = CANVAS__SIZE; //실제 픽셀사이즈 부여(css, js둘다)
-Canvas.height = CANVAS__SIZE; //실제 픽셀사이즈 부여(css, js둘다)
+canvas.width = CANVAS__SIZE; //실제 픽셀사이즈 부여(css, js둘다)
+canvas.height = CANVAS__SIZE; //실제 픽셀사이즈 부여(css, js둘다)
 context.fillStyle = 'white'; //캔버스 색상설정(하얀색배경)
 context.fillRect(0, 0, CANVAS__SIZE, CANVAS__SIZE);
 context.strokeStyle = DEFAULT__COLORS;
@@ -73,7 +73,7 @@ function contextMenu(event) {
   event.preventDefault();
 }
 function onHandleSave() {
-  const image = Canvas.toDataURL();
+  const image = canvas.toDataURL();
   const link = document.createElement('a');
   link.href = image; //href는 imageurl이어야한다.
   link.download = 'Paint[💌]';
@@ -85,13 +85,13 @@ function Erasebtn() {
 function Deletebtn() {
   window.location.reload(true);
 }
-if (Canvas) {
-  Canvas.addEventListener('mousemove', onMousemove);
-  Canvas.addEventListener('mousedown', startPainting);
-  Canvas.addEventListener('mouseup', onMouseup);
-  Canvas.addEventListener('mouseleave', onMouseleave);
-  Canvas.addEventListener('click', fillCanvas);
-  Canvas.addEventListener('contextmenu', contextMenu);
+if (canvas) {
+  canvas.addEventListener('mousemove', onMousemove);
+  canvas.addEventListener('mousedown', startPainting);
+  canvas.addEventListener('mouseup', onMouseup);
+  canvas.addEventListener('mouseleave', onMouseleave);
+  canvas.addEventListener('click', fillCanvas);
+  canvas.addEventListener('contextmenu', contextMenu);
 }
 Array.from(colors).forEach((color) =>
   color.addEventListener('click', handleColors)
