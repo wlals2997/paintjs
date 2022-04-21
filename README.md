@@ -1,14 +1,20 @@
-# 그림판
 
-### Vanila JS로 만든 그림판입니다.
+# :pushpin: Vanila JS로 만든 그림판
 👉🏼[웹페이지 링크](https://wlals2997.github.io/paintjs/)
 
 
-#### 목차
-1. [구현목록](#1-%EA%B5%AC%ED%98%84%EB%AA%A9%EB%A1%9D)
+## 1. 제작 기간 & 참여 인원
+- 2021년 11월 8일 ~ 11월 9일
+- 클론코딩
+
+## 2. 사용기술
+#### `Front-end`
+- HTML
+- CSS
+- JS
 
 
-## 1. 구현목록
+## 3. 구현목록
 ##### 2D context
 * 캔버스안에 그림을 그리기 위해서 getContext () 메소드를 호출하였다.
 * 사용자가 마우스를 이동할 시 offsetX와 offsetY의 값을 받아와 캔버스를 클릭하면 painting을 true 로 바꿈(마우스를 클릭하지 않으면 false가 되도록 설정)
@@ -38,7 +44,6 @@
 #### 그림저장
 - canvas.toDataURL을 통해 그림 그린 캔버스의 파일 url을 얻는다.
 - a tag를 이용하여 href와 다운로드를 설정.
-
 
 
 
