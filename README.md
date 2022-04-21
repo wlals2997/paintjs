@@ -1,13 +1,11 @@
 # 그림판
 
-### HTHML,CSS, JS로 만든 그림판입니다.
+### Vanila JS로 만든 그림판입니다.
 👉🏼[웹페이지 링크](https://wlals2997.github.io/paintjs/)
 
 
 #### 목차
 1. [구현목록](#1-%EA%B5%AC%ED%98%84%EB%AA%A9%EB%A1%9D)
-2. [화면](#2-%ED%8A%B9%EC%A7%95)
-
 
 
 ## 1. 구현목록
@@ -41,7 +39,6 @@
 - canvas.toDataURL을 통해 그림 그린 캔버스의 파일 url을 얻는다.
 - a tag를 이용하여 href와 다운로드를 설정.
 
-## 2. 화면
-<img src="https://postfiles.pstatic.net/MjAyMjAzMDZfMTM0/MDAxNjQ2NTc4NzE4NjEw.EKGJGL5Kisg7Xh0N8KO7EQGyrzbq5m_kddUTNAFZkpog.dSDzVpT_SIbqNwxi7xA0u7scFtNswMBZMIrrF4t0hNUg.PNG.wlals2997/screencapture-file-C-Users-JiMin-LEE-Projects-Coding-paintjs-index-html-2022.png?type=w966">
+
 
 
